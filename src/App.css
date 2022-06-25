@@ -1,38 +1,237 @@
-.App {
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+body {
+  background: #e5e5e5;
+  font-family: "Inter";
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: 400px;
+  height: 100vh;
+  flex-direction: column;
+  /* border: 2px solid red; */
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #20130b;
+  line-height: 32px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 24px;
+}
+
+.sub-title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #8b8b8b;
+}
+.label-title {
+  font-size: 20px;
+  color: #494949;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 80px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.form-group {
+  height: 48px;
+  width: 344px;
+  background: #f4f4f4;
+  border: 1px solid #b1b1b1;
+  border-radius: 8px;
+  display: block;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.form-group input {
+  height: 100%;
+  width: 86%;
+  background: #f4f4f4;
+  border-radius: 8px;
+  border: none;
+  display: inline-block;
+}
+.form-group input:focus {
+  outline: none !important;
+  outline-style: none;
+  background: #f4f4f4;
+  box-shadow: none;
+}
+
+.border-end {
+  border-right: 2px solid #b1b1b1;
+  color: #b1b1b1;
+  font-weight: 500;
+}
+
+.submit-btn {
+  display: block;
+  /* position: fixed; */
+  margin-top: 200px;
+  bottom: 30px;
+  width: 344px;
+  height: 48px;
+  background: #223263;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* OTP Verify component CSS */
+.otp-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #20130b;
+  line-height: 32px;
+  margin-bottom: 24px;
+}
+.otp-sub-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #8b8b8b;
+  max-width: 300px;
+}
+.otp-field {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  margin-top: 50px;
+}
+.otp-field_input {
+  height: 40px;
+  width: 40px;
+  background: #f4f4f4;
+  border: 1px solid #b1b1b1;
+  border-radius: 8px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.otp-bottom-label {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #8b8b8b;
+  max-width: 300px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Dashboard Css */
+.card-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Restaurant Card Css */
+.card {
+  margin: 2px;
+  display: flex;
+  justify-items: center;
+  /* align-items: center; */
+  flex-direction: column;
+  border: 1px solid #ebf0ff;
+  padding: 16px;
+  gap: 8px;
+  width: 190px;
+  border-radius: 5px;
+}
+/* .res-img-container{
+
+} */
+.res-img {
+  height: 130px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.res-name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #223263;
+  overflow: hidden;
+}
+
+.res-cuisine-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: #b1b1b1;
+  margin-bottom: 10px;
+}
+
+.res-price {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  color: #223263;
+}
+
+/* Detail dashboard css */
+.detail-container {
+  max-width: 700px;
+  margin: auto;
+}
+.detail-img {
+  max-height: 320px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.detail-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+.detail-cuisine-name {
+  font-weight: 500;
+  font-size: 18px;
+  color: #b1b1b1;
+  margin-bottom: 4px;
+  padding: 16px;
+  padding-top: 0px;
+}
+.res-weight {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 16px;
+}
+.detail-rating {
+  padding: 16px;
+  padding-top: 0px;
+}
+
+
+.detail-img-container{
+  position: relative;
+}
+
+/* .detail-watermark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+} */
+.detail-watermark img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  opacity: 1;
+  z-index: 1;
 }
