@@ -185,9 +185,10 @@ body {
   margin: auto;
 }
 .detail-img {
-  max-height: 320px;
+  max-height: 280px;
   width: 100%;
   object-fit: cover;
+  height: 100%;
   object-position: center;
 }
 .detail-title {
@@ -216,15 +217,9 @@ body {
 
 .detail-img-container{
   position: relative;
+  max-height: 320px;
 }
 
-/* .detail-watermark{
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  z-index: 1;
-} */
 .detail-watermark img{
   position: absolute;
   top:50%;
@@ -234,4 +229,12 @@ body {
   height: 50px;
   opacity: 1;
   z-index: 1;
+}
+
+.detail-header{
+  width: 100%;
+  max-width: 700px;
+  position:absolute;
+  top:16px;
+  z-index: 50;
 }

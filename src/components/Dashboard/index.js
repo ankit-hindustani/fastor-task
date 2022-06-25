@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchRestaurant } from "../../api";
 import Card from "../Card";
 
 
 function Dashboard({result,setresult}) {
+  const navigate = useNavigate();
   const [loading, setloading] = useState(false);
 
   useEffect(() => {
@@ -24,9 +26,15 @@ function Dashboard({result,setresult}) {
   return (
     <>
       <div className="dashboard-title">
-        <h2 className="otp-title ml-4">Connaught place</h2>
-        <div>
-          <i className="fa fa-search" aria-hidden="true"></i>
+        <div className="d-flex justify-content-between">
+          <h2 className="otp-title m-3">
+            <i className="fa fa-angle-left text-secondary mr-2" onClick={()=>{
+              navigate("/otpVerify")
+            }}></i>Connaught place
+          </h2>
+          <h2 className="otp-title m-3">
+            <i className="fa fa-search text-secondary"></i>
+          </h2>
         </div>
       </div>
       <div className="card-container">
