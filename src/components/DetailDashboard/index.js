@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import Slider from 'react-slick';
+import Fastor_Logo from "./../../assets/Fastor_Logo.png";
 
 
-function DetailDashboard() {
+
+function DetailDashboard({result}) {
+  const [singleResult, setsingleResult] = useState();
 
   const settings = {
     dots: true,
@@ -12,62 +15,48 @@ function DetailDashboard() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const restaurant_id = queryParams.get("restaurant_id");
+    let filterResult = result && result.filter((res)=>res.restaurant_id===restaurant_id)
+    setsingleResult(filterResult[0])
+  }, [result])
+  
+
   return (
     <>
       <div className="detail-container">
         <Slider {...settings}>
-          <div className="detail-img-container">
-            <img
-              className="detail-img"
-              src="https://res.cloudinary.com/myedugatetech/image/upload/v1646746577/india/stores/4/menu/kihxojj5cryp6b5dlriw.jpg"
-              alt=""
-            />
-            <div className="detail-watermark">
-              <img
-                className=""
-                src="https://res.cloudinary.com/myedugatetech/image/upload/v1646746577/india/stores/4/menu/kihxojj5cryp6b5dlriw.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="detail-img-container">
-            <img
-              className="detail-img"
-              src="https://res.cloudinary.com/myedugatetech/image/upload/v1646746577/india/stores/4/menu/kihxojj5cryp6b5dlriw.jpg"
-              alt=""
-            />
-            <div className="detail-watermark">
-              <img
-                className=""
-                src="https://res.cloudinary.com/myedugatetech/image/upload/v1646746577/india/stores/4/menu/kihxojj5cryp6b5dlriw.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="detail-img-container">
-            <img
-              className="detail-img"
-              src="https://res.cloudinary.com/myedugatetech/image/upload/v1646746577/india/stores/4/menu/kihxojj5cryp6b5dlriw.jpg"
-              alt=""
-            />
-            <div className="detail-watermark">
-              <img
-                className=""
-                src="https://res.cloudinary.com/myedugatetech/image/upload/v1646746577/india/stores/4/menu/kihxojj5cryp6b5dlriw.jpg"
-                alt=""
-              />
-            </div>
-          </div>
+          {singleResult?.images.map((imgs) => {
+            return (
+              <div className="detail-img-container">
+                <img className="detail-img" src={imgs?.url} alt="imgages" />
+                <div className="detail-watermark">
+                  <img
+                    className=""
+                    src={Fastor_Logo}
+                    alt=""
+                  />
+                </div>
+              </div>
+            );
+          })}
         </Slider>
 
         <div className="detail-title">
-          <h2 className="otp-title">Res Name</h2>
-          <h2 className="otp-title">$200</h2>
+          <h2 className="otp-title">{singleResult?.restaurant_name}</h2>
+          <h2 className="otp-title">${singleResult?.avg_cost_for_two}</h2>
         </div>
-        <div className="detail-cuisine-name">cuisine name, cuisine name 2</div>
-        <div className="res-weight">232g</div>
+        <div className="detail-cuisine-name">
+          {singleResult?.cuisines.map((res) => `${res.cuisine_name} `)}
+        </div>
+        <div className="res-weight">{"395g"}</div>
         <div className="detail-rating">
-          <Rating size={24} initialValue={3} readonly="true" />
+          <Rating
+            size={24}
+            initialValue={singleResult?.rating?.restaurant_avg_rating}
+            readonly="true"
+          />
         </div>
       </div>
     </>
