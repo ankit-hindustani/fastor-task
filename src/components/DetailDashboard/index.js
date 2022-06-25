@@ -4,11 +4,8 @@ import { Rating } from 'react-simple-star-rating'
 import Slider from 'react-slick';
 import Fastor_Logo from "./../../assets/Fastor_Logo.png";
 
-
-
-
-
 function DetailDashboard({result}) {
+  const [heartToggle, setheartToggle] = useState(true);
   const navigate = useNavigate();
   const [singleResult, setsingleResult] = useState();
 
@@ -32,7 +29,7 @@ function DetailDashboard({result}) {
       <div className="detail-container">
         <div className='detail-header'>
           <div className="d-flex justify-content-between">
-            <h2 className="m-3">
+            <h2 className="m-2">
               <i
                 className="fa fa-angle-left text-light"
                 onClick={() => {
@@ -40,8 +37,8 @@ function DetailDashboard({result}) {
                 }}
               ></i>
             </h2>
-            <h2 className="m-3 float-right">
-              <i className="fa fa-heart text-light"></i>
+            <h2 className="m-2">
+              <i onClick={()=>{setheartToggle(!heartToggle)}} className={`fa fa-heart ${heartToggle?"text-light":"text-danger"}`}></i>
             </h2>
           </div>
         </div>
