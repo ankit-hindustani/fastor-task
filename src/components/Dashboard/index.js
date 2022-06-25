@@ -28,7 +28,7 @@ function Dashboard({result,setresult}) {
       <div className="dashboard-title">
         <div className="d-flex justify-content-between">
           <h2 className="otp-title m-3">
-            <i className="fa fa-angle-left text-secondary mr-2" onClick={()=>{
+            <i className="fa fa-angle-left text-secondary mr-2 font-weight-bold" onClick={()=>{
               navigate("/otpVerify")
             }}></i>Connaught place
           </h2>

@@ -238,3 +238,14 @@ body {
   top:16px;
   z-index: 50;
 }
+
+.share-container{
+  position:absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 50;
+  cursor: pointer;
+}
+.slick-arrow{
+  display: none !important;
+}
